@@ -65,4 +65,16 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(new String[]{"Номер один", "Тролли. Мировой тур", "Человек-Невидимка", "Джентельмены", "Отель Белград"}, manager.findLast());
     }
+
+    @Test
+    public void testFindLastUnderLimit() {
+        FilmManager manager = new FilmManager();
+
+        manager.addFilm("Бладшот");
+        manager.addFilm("Вперёд");
+        manager.addFilm("Отель Белград");
+
+
+        Assertions.assertArrayEquals(new String[]{"Отель Белград", "Вперёд", "Бладшот"}, manager.findLast());
+    }
 }
